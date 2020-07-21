@@ -8,6 +8,8 @@ ALÔ CIC, me da crédito ai pelo esforço hehe
 
 Aqui tem print de como ela funciona
 
+## Link da Extensão: [Aguardando aprovação](https://chrome.google.com/webstore/category/extensions?hl=pt-BR)
+
 ## Antes - > Depois
 
 <img align="left" width="350" src="https://raw.githubusercontent.com/pablomuro/sigaa-unb-volta-horario/master/docs/before.png">
