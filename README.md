@@ -10,8 +10,8 @@ Aqui tem print de como ela funciona
 
 ## Antes - > Depois
 
-<img align="left" width="450" src="https://raw.githubusercontent.com/pablomuro/sigaa-unb-volta-horario/master/docs/before.png">
-<img align="rigth" width="450" src="https://raw.githubusercontent.com/pablomuro/sigaa-unb-volta-horario/master/docs/after.png">
+<img align="left" width="350" src="https://raw.githubusercontent.com/pablomuro/sigaa-unb-volta-horario/master/docs/before.png">
+<img align="rigth" width="350" src="https://raw.githubusercontent.com/pablomuro/sigaa-unb-volta-horario/master/docs/after.png">
 
 ## Zoom
 ![zoomed](docs/zoom.png)
