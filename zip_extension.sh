@@ -2,6 +2,7 @@ rm -rf extension_folder/
 mkdir extension_folder
 
 cp *.js extension_folder/
+cp *.css extension_folder/
 cp manifest.json extension_folder/
 cp -r icons extension_folder/
 

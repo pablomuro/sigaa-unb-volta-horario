@@ -1,5 +1,5 @@
 (function(){
-  const regexClassSchedules = /^([2-7])([M|T|N])([1-6]{1,6})$/;
+  const regexClassSchedules = /^([2-7]{1,2})([M|T|N])([1-7]{1,7})$/;
 
   const mapDays = {
     2: 'SEG',
@@ -25,6 +25,7 @@
       {start: '16:00', end: '16:50'},
       {start: '17:00', end: '17:50'},
       {start: '18:00', end: '18:50'},
+      {start: '19:00', end: '19:50'},
     ],
     'N': [
       {start: '19:00', end: '19:50'},
@@ -45,17 +46,17 @@
     return {startTime, endTime}
   }
 
-  function parseClassSchedules(classSchedule){
-    let [ , day, period, hour, ] = [...classSchedule.split(regexClassSchedules)]
+  function parseClassSchedules(classScheduleParams){
+    let  { day, period, hour } = classScheduleParams
     const classDay = mapDays[day]
     const finalHour = hour.length - 1;
-    const { startTime, endTime } = {...getStartAndEndTimeFromSchedule(period, hour, finalHour)}
+    const { startTime, endTime } = getStartAndEndTimeFromSchedule(period, hour, finalHour)
     const newSchedule = `<span>${classDay} ${startTime}-${endTime}</span>`
     return newSchedule;
   }
 
   function fixColumnsWidth(){
-    $('.simple-panel table th[width="15%"]').attr('width', '17%')
+    $('.simple-panel table th[width="15%"]').attr('width', '20%')
   }
   function fixClassSchedule(){
     let hasScheduleColumn = false;
@@ -77,13 +78,28 @@
       scheduleElements.each(function(){
         const el = $(this)
         let validSchedule = false;
-        const schedules = el.text().trim().split(' ')
+        const popUp = el.find('img')
+        const hasPopUp = popUp[0] != undefined && popUp[0].src.includes('ajuda.gif')
+        let schedules = null;
+        if(hasPopUp){
+          schedules = schedules = el[0].childNodes[0].nodeValue.trim().replace(/\r/g, "").split(' ')
+        } else {
+          schedules = el.text().trim().split(' ')
+        }
         const newSchedules  = []
         for(let i in schedules){
-          let classSchedule = schedules[i]
+          let classSchedule = schedules[i].replace(/\r/g, "");
           if(regexClassSchedules.test(classSchedule)){
+            let [match, day, period, hour ] = regexClassSchedules.exec(classSchedule)
             validSchedule = true;
-            newSchedules.push(parseClassSchedules(classSchedule))
+            if(day.length == 1){
+              newSchedules.push(parseClassSchedules({day, period, hour}))
+            } else {
+              for(let i = 0; i < day.length; i++){
+                newSchedules.push(parseClassSchedules({day: day[i], period, hour}))
+              }
+            }
+
           }
         }
 
