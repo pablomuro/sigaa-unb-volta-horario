@@ -10,4 +10,4 @@ cd extension_folder
 zip -r extension.zip *
 cp extension.zip ../
 cd ..
-# rm -rf extension_folder/
+rm -rf extension_folder/
