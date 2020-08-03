@@ -7,7 +7,7 @@ cp -r icons extension_folder/
 
 cd extension_folder
 
-zip extension.zip *
+zip -r extension.zip *
 cp extension.zip ../
 cd ..
-rm -rf extension_folder/
+# rm -rf extension_folder/
