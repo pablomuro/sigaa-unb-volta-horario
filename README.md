@@ -10,7 +10,7 @@ Aqui tem print de como ela funciona
 
 ## Link da Extensão: [Link pra chrome store](https://chrome.google.com/webstore/detail/sigaa-unb-volta-hor%C3%A1rio/mehmaliahkgafbndneaaajceobkgkebo?hl=pt-BRR)
 
-## Pra quem não conseguir instalar por algum motivo
+## Pra quem não conseguir instalar por algum motivo - Para conseguir instalar pela chrome store de novo é necessário excluir a que foi instalada manualmente
 
 Vou subir o arquivo .crx aqui, vai no chrome, canto superior direito e ativa o Modo do desenvolvedor
 
