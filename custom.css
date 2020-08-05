@@ -2,3 +2,36 @@ table.listagem tr td, #main-docente #turmas-portal .info {
     padding: 8px 5px !important;
 }
 
+body .custom-table tr{
+    border-color:rgb(128, 128, 128) !important;
+    border-collapse:collapse !important;
+}
+body .custom-table td{
+    padding: 8px 5px !important;
+    vertical-align: middle !important;
+} 
+
+body .custom-table td a{
+    color: #007bff !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+
+body .custom-table td a:hover{
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+}
+
+body .custom-table tr.odd, body .custom-table tr.linhaImpar{
+    background-color: rgba(0,0,0,.05) !important;
+}
+
+body .custom-table tr.linhaPar{
+    background-color: #fff !important;
+}
+
+body .custom-table tbody tr:not(.agrupador):hover{
+    background-color: #92e098 !important;
+}
+
+

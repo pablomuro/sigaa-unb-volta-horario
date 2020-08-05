@@ -54,10 +54,6 @@
     const newSchedule = `<span>${classDay} ${startTime}-${endTime}</span>`
     return newSchedule;
   }
-
-  function fixColumnsWidth(){
-    $('.simple-panel table th[width="15%"]').attr('width', '20%')
-  }
   function fixClassSchedule(){
     let hasScheduleColumn = false;
     let columnIndex = null;
@@ -70,8 +66,6 @@
     })
 
     if(hasScheduleColumn){
-      fixColumnsWidth();
-      
       const scheduleSelector = `table tbody tr td:nth-child(${columnIndex})`;
       const scheduleElements = $(scheduleSelector)
 
