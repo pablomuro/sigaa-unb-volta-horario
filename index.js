@@ -1,5 +1,5 @@
 (function(){
-  const regexClassSchedules = /^([2-7]{1,2})([M|T|N])([1-7]{1,7})$/;
+  const regexClassSchedules = /^([2-7]{1,6})([M|T|N])([1-7]{1,7})$/;
 
   const mapDays = {
     2: 'SEG',
@@ -89,9 +89,9 @@
             if(day.length == 1){
               newSchedules.push(parseClassSchedules({day, period, hour}))
             } else {
-              for(let i = 0; i < day.length; i++){
-                newSchedules.push(parseClassSchedules({day: day[i], period, hour}))
-              }
+              day.split('').map(function(day){
+                newSchedules.push(parseClassSchedules({day, period, hour}))
+              })
             }
 
           }
