@@ -58,6 +58,7 @@
     let hasScheduleColumn = false;
     let columnIndex = null;
     let columnScheduleElement = null;
+    let scheduleTable = null
 
     $('table thead tr th:contains(Horário)').each(function () {
       hasScheduleColumn = true;
@@ -68,11 +69,12 @@
         const colspanValue = firstTh.attr('colspan')
         columnIndex += parseInt(colspanValue) - 1
       }
+      scheduleTable = $(this).parents('table')
     })
 
-    if (hasScheduleColumn) {
-      const scheduleSelector = `table tbody tr td:nth-child(${columnIndex})`;
-      const scheduleElements = $(scheduleSelector)
+    if (hasScheduleColumn && scheduleTable) {
+      const scheduleSelector = `tbody tr td:nth-child(${columnIndex})`;
+      const scheduleElements = scheduleTable.find(scheduleSelector)
 
       scheduleElements.each(function () {
         const el = $(this)
@@ -81,7 +83,7 @@
         const hasPopUp = popUp[0] != undefined && popUp[0].src.includes('ajuda.gif')
         let schedules = null;
         if (hasPopUp) {
-          schedules = schedules = el[0].childNodes[0].nodeValue.trim().replace(/\r/g, "").split(' ')
+          schedules = popUp[0].parentNode.firstChild.nodeValue.trim().replace(/\r/g, "").split(' ')
         } else {
           schedules = el.text().trim().split(' ')
         }
